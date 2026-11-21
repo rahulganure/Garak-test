@@ -1,0 +1,30 @@
+1. Install python
+
+2. 	mkdir "D:\AI Security Folder"
+	mkdir "D:\AI Security Folder\tools"
+	cd "D:\AI Security Folder\tools"
+
+3. 	mkdir garak
+	cd garak
+
+4. python -m venv .venv
+
+5. Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+6. .\.venv\Scripts\Activate.ps1
+
+7. python -m pip install --upgrade pip
+
+8. garak --version
+
+9. create and .env 
+
+10. notepad load-env.ps1
+
+11. 	cd "D:\AI Security Folder\tools\garak"
+	.\.venv\Scripts\Activate.ps1
+	.\load-env.ps1
+
+12. winget install llama.cpp
+
+13. open new terminal and type llama --help
