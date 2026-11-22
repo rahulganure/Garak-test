@@ -25,6 +25,40 @@
 	.\.venv\Scripts\Activate.ps1
 	.\load-env.ps1
 
-12. winget install llama.cpp
 
-13. open new terminal and type llama --help
+ and type llama --help
+
+12. garak -t groq -n qwen/qwen3.8-27b --spec probes.dan.Dan_11_0 -g 1
+
+13 garak -t groq -n qwen/qwen3.8-27b --spec probes.custom_policy_probe -g 1 // custom added probes
+
+
+=======================================================
+                Local Model testing
+=======================================================
+14. winget install llama.cpp ( for local model testing)
+
+15. open new terminal
+
+16. llama-server.exe `
+    -m "D:\AI Security Folder\models\Qwen3.5-4B-Instruct-Q4_K_M.gguf" `
+    --host 127.0.0.1 `
+    --port 8080 `
+    -c 8192 `
+    -ngl 0 `
+    --reasoning-budget 0
+
+17. garak -t openai.OpenAICompatible `
+  -n "Qwen3.5-4B-Instruct-Q4_K_M.gguf" `
+  --spec probes.custom_policy_probe `
+  -g 1 `
+  --config .\llama-local.yaml
+======================================================
+
+
+Reference docs Link:
+https://reference.garak.ai/en/latest/
+
+
+
+ Get-Content "C:\Users\ADMIN\.local\share\garak\garak_runs\garak.5714330a-c3cf-4fa1-8c8f-cbd8390a3b9a.report.jsonl" | ForEach-Object { $_ | ConvertFrom-Json } | Where-Object { $_.entry_type -eq "attempt" -and $_.status -eq 2 } | Format-List seq, prompt, outputs, detector_results
