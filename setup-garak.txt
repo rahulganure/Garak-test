@@ -15,6 +15,8 @@
 
 7. python -m pip install --upgrade pip
 
+7. python -m pip install -U garak
+
 8. garak --version
 
 9. create and .env 
